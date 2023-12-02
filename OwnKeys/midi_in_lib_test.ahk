@@ -22,8 +22,8 @@ listenNote(68, "mydeskD")
 listenNote(48, "textHtmlstart")
 listenNote(50, "textHtmlstartInput")
 listenNote(52, "htmlTable")
-listenNote(53, "codeInText")
-listenNote(55, "highlighText")
+listenNote(53, "highlighText")
+listenNote(55, "textStyling")
 ; listenNote(57, "")	not used
 ; listenNote(59, "")	not used
 
@@ -46,13 +46,12 @@ ExitApp
 Esc::ExitApp
 
 ;-------------------------Midi "hotkey" functions---------------------
-; midi controller - black keys
 ;------ application ------
 chrome(note, vel) ; key 49
 {
     if (vel)
 		{
-		run, "C:\Program Files\Google\Chrome\Application\chrome.exe"
+		run, "C:\your path\chrome.exe"
 		}
 }
 ;------ application ------
@@ -60,7 +59,7 @@ firefox(note, vel) ; key 51, (vel >= 80) without it starts 2x
 {
     if (vel >= 80)
 		{
-		run, "C:\Program Files\Mozilla Firefox\firefox.exe"
+		run, "C:\your pathfirefox.exe"
 		}
 }
 ;------ application ------
@@ -68,7 +67,7 @@ vscode(note, vel) ; key 54, (vel >= 80) without it starts 2x
 {
     if (vel >= 80)
 		{
-		run, "D:\ProgrammeD\Microsoft VS Code\Code.exe"
+		run, "D:\your pathCode.exe"
 		}
 }
 ;------ application ------
@@ -76,7 +75,7 @@ notepadPlus(note, vel) ; key 56
 {
     if (vel)
 		{
-		run, "C:\Program Files\Notepad++\notepad++.exe"
+		run, "C:\your pathnotepad++.exe"
 		}
 }
 ;------ application ------
@@ -92,7 +91,7 @@ volumeUp(note, vel) ; key 61,
 {
     if (vel <= 90 && vel > 30)
 		{
-			Send {Volume_up +5} ; 0 means sound off , sets tone to 10, +10 is increased by 10
+			Send {Volume_up +5} ; 0 means sound off , 10 sets tone to 10, +10 is increased by 10
 		}
 }
 
@@ -103,7 +102,6 @@ volumeDown(note, vel) ; key 63,
 			Send {Volume_Mute}
 		}
 }
-
 
 ;------ application - explorer ------
 mydeskC(note, vel) ; key 66 (C3), (vel >= 70) without it starts 2x
@@ -118,11 +116,10 @@ mydeskD(note, vel) ; key 69
 {
     if (vel)
 		{
-		run, "D:\EigeneDateinProgramming"
+		run, "D:\your path"
 		}
 }
 
-; midi controller - white keys
 ;------ text ------
 ; all special characters i.e. {#} must be set in {}, for {space} http://www.autohotkey.com/docs/commands/Send.htm 
 ; https://www.autohotkey.com/docs/v1/Hotkeys.htm
@@ -145,6 +142,7 @@ textHtmlstart(note, vel) ; key 48,  (vel <= 90 && vel > 30) without it starts 2x
 		}
 }
 
+;------ text with input ------
 textHtmlstartInput(note, vel) ; key 50,  (vel <= 90 && vel > 30) without it starts 2x
 {
 	if (vel <= 90 && vel > 30)
@@ -185,7 +183,7 @@ htmlTable(note, vel) ; key 52,  (vel <= 90 && vel > 30) without it starts 2x
 		}
 }
 
-codeInText(note, vel) ; key 53,  (vel <= 90 && vel > 30) without it starts 2x
+highlighText(note, vel) ; key 53,  (vel <= 90 && vel > 30) without it starts 2x
 {
 	if (vel <= 90 && vel > 30)
 		{
@@ -193,7 +191,7 @@ codeInText(note, vel) ; key 53,  (vel <= 90 && vel > 30) without it starts 2x
 		}
 }
 
-highlighText(note, vel) ; key 55,  (vel <= 90 && vel > 30) without it starts 2x
+textStyling(note, vel) ; key 55,  (vel <= 90 && vel > 30) without it starts 2x
 {
 	if (vel <= 90 && vel > 30)
 		{
@@ -211,7 +209,7 @@ ctrlshiftP(note, vel) ; key 64
 			Send ^+p
 		}
 }
-; ctrl + shift + ö terminal
+; ctrl + shift + ö , terminal (ö is a german/austrian thing)
 ctrlshiftOE(note, vel) ; key 65
 {
     if (vel <= 90 && vel > 30)
@@ -244,23 +242,14 @@ playSomeSounds2(note, vel) ; key 71, 72
 
 
 /*
-;------ application ------
-githubDesktop(note, vel) ; 
-{
-    if (vel)
-		{
-		run, "C:\Users\Bella\AppData\Local\GitHubDesktop\GitHubDesktop.exe"
-		}
-}
-
-;------ key combinations ctrl + A ------
+;------ key combinations ctrl + C ------
  https://www.autohotkey.com/docs/v2/howto/SendKeys.htm 
 
 ctrlA(note, vel) 
 {
     if (vel <= 90 && vel > 30)
 		{
-			Send ^a
+			Send ^c
 		}
 }
 
