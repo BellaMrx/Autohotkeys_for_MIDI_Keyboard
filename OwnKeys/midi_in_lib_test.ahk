@@ -46,6 +46,7 @@ ExitApp
 Esc::ExitApp
 
 ;-------------------------Midi "hotkey" functions---------------------
+; vel = velocity / the velocity must be individually adjusted for some so that it is not executed twice
 ;------ application ------
 chrome(note, vel) ; key 49
 {
